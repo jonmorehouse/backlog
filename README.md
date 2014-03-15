@@ -17,5 +17,8 @@ backlog -c "Today"
 # work on todays backlog
 backlog 
 
+# archive everything previous to today
+backlog a
+backlog archive
 ```
 
