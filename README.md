@@ -23,6 +23,8 @@ backlog
 backlog a
 backlog archive
 
+# go to the current directory
+backlog cd
 
 ```
 
