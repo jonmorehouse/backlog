@@ -1,8 +1,8 @@
 source 'https://rubygems.org' 
 
 gem 'chronic'
-gem 'aruba'
-gem 'cucumber'
+gem 'aruba', '~> 0.5.3'
+gem 'cucumber', '~> 1.3.9'
 
 
 
