@@ -1,3 +1,9 @@
 Given(/^"(.*?)" exists$/) do |arg1|
-  puts "HELLO WORLD"
+  #pending
+end
+
+Then(/^test$/) do 
+    
+  puts ENV['BACKLOG_DIR']
+
 end

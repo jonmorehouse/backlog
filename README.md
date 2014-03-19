@@ -26,6 +26,10 @@ backlog archive
 # go to the current directory
 backlog cd
 
+# backlog set up the directory
+backlog init
+
+
 ```
 
 Temporary Development Notes
