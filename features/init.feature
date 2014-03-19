@@ -1,12 +1,12 @@
 @announce
 Feature: init
 
-  Scenario: No backlog_dir environment variable set
-    Given I set the environment variables to:
-      |variable|value|
-      |BACKLOG_DIR||
-    When I run `backlog init test`
-  #Scenario: Backlog directory already exists 
-    #Given a directory named ".backlog"
-    #Then test
+  Scenario: backlog directory exists
+    Given default backlog directory exists
+    When I run `backlog init`
+
+  Scenario: backlog directory does not exist
+
+  Scenario: backlog_dir environment not set
+
 
