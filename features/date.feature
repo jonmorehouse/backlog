@@ -1,7 +1,15 @@
 @announce
 Feature: date
 
-  Scenario: invalid date
+  Scenario Outline: invalid dates
+    Given I set the date string to <string>
+    When I create a date object
+    Then it should not be a valid datefile
+  
+    Examples:
+      |string|
+      |"lasterday"|
+      |"tomorday"|
 
   Scenario: today
 
@@ -10,13 +18,16 @@ Feature: date
     And it should be today's date 
     And it should be a current file
 
-  Scenario: future date
-    Given I set the date string to "tomorrow"
+  Scenario Outline: future dates
+    Given I set the date string to <string>
     When I create a date object
     Then it should be a valid datefile
     And it should be a current file
+
+    Examples:
+      |string|
+      |"tomorrow"|
+      |"next tuesday"|
+      |"next week"|
     
-
-
-
-
+    
