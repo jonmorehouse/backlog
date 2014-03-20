@@ -14,7 +14,26 @@ module Backlog
       else
         parse_date(date_string)
       end
+      
+    end
 
+    def self.new_from_args(args)
+
+      # return a datefile with the args changed up properly
+      first_keyword = args[0]
+      date = DateFile.new(first_keyword)
+      args.shift
+      
+      if date.valid == nil && args.length > 0
+        date = Datefile("#{first_keyword} #{args[0]}")
+        args.shift
+      end
+
+      if date.valid
+        return date
+      else
+        return nil
+      end
     end
 
     def filename

@@ -8,9 +8,6 @@ Feature: init
   Scenario: backlog directory does not exist
     Given default backlog directory does not exist
     When I run `backlog init`
-    Then 
-
-
 
   Scenario: backlog_dir environment not set
 

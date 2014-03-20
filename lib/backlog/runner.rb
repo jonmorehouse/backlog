@@ -29,9 +29,8 @@ module Backlog
       # get the method to call for this command
       command, args = subcommand
 
-      puts args
+      puts command
 
-      # now lets grab the correct arguments as needed
     end
 
     # return a function pointer for the subcommand
@@ -66,12 +65,12 @@ module Backlog
       end
 
       # no command matches up - check to see if this is a date
-      date = Date.from_args(@args)
+      date = DateFile.new_from_args(@args)
 
       if date != nil 
         return Open, date.args
       else
-        return Help, args
+        return Help, @args
       end
     end
   end
