@@ -1,4 +1,5 @@
 require 'aruba/cucumber'
+require 'backlog'
 
 lib_dir = File.expand_path('../../../lib', __FILE__)
 

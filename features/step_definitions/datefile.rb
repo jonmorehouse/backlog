@@ -1,5 +1,3 @@
-require 'backlog'
-
 Then(/^it should not be a valid datefile$/) do
   @datefile.valid.should == nil
 end
