@@ -23,7 +23,7 @@ module Backlog
     end
 
     def self.archive_dir
-      return File.join(Config.base_dir, "current")
+      return File.join(Config.base_dir, "archive")
     end
 
   end

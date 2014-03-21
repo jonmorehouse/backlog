@@ -2,13 +2,13 @@ module Backlog
   class CLI
 
     @@commands = {
-        :init => "Init", 
-        :open => "Open",
-        :archive => "Archive",
+        :init => Init, 
+        #:open => "Open",
+        #:archive => "Archive",
 
         # following features can come later
-        :todo => "Todo", 
-        :complete => "Complete", 
+        #:todo => "Todo", 
+        #:complete => "Complete", 
       }
 
     @@aliases = {
@@ -20,6 +20,12 @@ module Backlog
       :complete => :c,
     }
 
+    def self.commands
+
+      return @@commands
+
+    end
+
     def initialize(*argv)
       @args = Args.new(argv)
     end
@@ -27,9 +33,10 @@ module Backlog
     def execute!
     
       # get the method to call for this command
-      command, args = subcommand
-
-      puts command
+      command_class, args = subcommand
+      
+      # run the command
+      command_class.new(args, @date).execute!
 
     end
 
@@ -60,14 +67,17 @@ module Backlog
         # if alias / keywords match up then go ahead and return the correct class
         if keyword == key or aliases.include? key
           # return the correct command method
+          @date = DateFile.new()
           return command_class, @args[1,@args.length] 
         end
       end
 
       # no command matches up - check to see if this is a date
+      # we need to pass the date on to the next step ...
       date = DateFile.new_from_args(@args)
 
       if date != nil 
+        @date = date
         return Open, date.args
       else
         return Help, @args

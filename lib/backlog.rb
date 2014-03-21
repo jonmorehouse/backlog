@@ -1,6 +1,7 @@
 require 'backlog/args'
 require 'backlog/config'
 require 'backlog/help'
+require 'backlog/init'
 require 'backlog/open'
 require 'backlog/runner'
 require 'backlog/tasks'
