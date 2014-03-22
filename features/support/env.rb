@@ -10,6 +10,8 @@ Before do
   set_env 'RUBYLIB', lib_dir
   # initialize backlog file
   set_env "BACKLOG_DIR", File.join(".", ".backlog")
+  # we are using editor to open files
+  set_env "EDITOR", "echo"
 
 end
 

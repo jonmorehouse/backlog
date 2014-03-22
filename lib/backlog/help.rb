@@ -3,17 +3,25 @@ module Backlog
 
     def initialize(cli_args, *args)
 
-
     end
 
     def execute!
 
       # run the command as needed
       CLI.commands.each do |command, command_class| 
-
-        print_help(command_class)
+        #puts command_class
+        puts command
+        ##print_help(command_class)
 
       end
+
+    end
+
+    def self.help()
+
+      return <<-eos
+      Help: \tPrint this menu
+      eos
 
     end
 

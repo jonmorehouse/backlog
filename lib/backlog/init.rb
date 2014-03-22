@@ -8,7 +8,6 @@ module Backlog
     end
 
     def execute!
-      
       [Config.base_dir, Config.archive_dir, Config.current_dir].each do |directory|
         if not File.directory? directory 
           FileUtils.mkdir(directory)

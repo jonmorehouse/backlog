@@ -2,8 +2,9 @@ module Backlog
   class CLI
 
     @@commands = {
-        :init => Init, 
-        #:open => "Open",
+        init:  Init, 
+        help: Help,
+        open: Open,
         #:archive => "Archive",
 
         # following features can come later
@@ -15,6 +16,7 @@ module Backlog
       
       :init => :in,
       :open => [:o, :edit],
+      :help => :h,
       :archive => :a,
       :todo => :t,
       :complete => :c,
@@ -34,7 +36,7 @@ module Backlog
     
       # get the method to call for this command
       command_class, args = subcommand
-      
+
       # run the command
       command_class.new(args, @date).execute!
 
@@ -43,7 +45,9 @@ module Backlog
     # return a function pointer for the subcommand
     def subcommand()
 
-      # split the argv into a list of command words passed
+      if not @args.length > 0
+        return Open, nil
+      end
       # cache the first string a symbol
       keyword = @args[0].to_sym
       
@@ -65,7 +69,7 @@ module Backlog
         end
         
         # if alias / keywords match up then go ahead and return the correct class
-        if keyword == key or aliases.include? key
+        if keyword == key or aliases.include? keyword
           # return the correct command method
           @date = DateFile.new()
           return command_class, @args[1,@args.length] 
@@ -80,7 +84,7 @@ module Backlog
         @date = date
         return Open, date.args
       else
-        return Help, @args
+        return Open, nil
       end
     end
   end
