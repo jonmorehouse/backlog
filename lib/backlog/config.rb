@@ -12,7 +12,12 @@ module Backlog
         return @@path
       end
       if ENV.has_key? "BACKLOG_DIR"
-        @@path = File.expand_path(ENV['BACKLOG_DIR'])
+        
+        if ENV['BACKLOG_DIR'].start_with? "/" or ENV['BACKLOG_DIR'].start_with? "~/" or ENV['BACKLOG_DIR'].start_with? "$HOME"
+          @@path = ENV['BACKLOG_DIR']
+        else
+          @@path = File.join(".", ENV['BACKLOG_DIR'])
+        end
       else
         @@path = File.join(ENV['HOME'], ".backlog")
       end

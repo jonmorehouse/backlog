@@ -1,6 +1,5 @@
 module Backlog
   class Entry
-
     def initialize(date)
 
       @date = date
@@ -19,7 +18,8 @@ module Backlog
 
     def create
      
-      File.open(@path, "w")
+      puts "TEST"
+      File.open(@path, "w").write content
       
     end
 
@@ -42,6 +42,10 @@ Completed
 
 Todo
 ----
+
+
+
+
       eos
     end
 

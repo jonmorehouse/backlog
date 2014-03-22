@@ -20,7 +20,12 @@ module Backlog
         entry.create
       end
 
+      if Date.today == @date.date
+        symlink
+      end
+
       # now open the command
+      exec "#{ENV['EDITOR']} #{@date.path}"
     end
 
     def self.help
@@ -33,11 +38,10 @@ module Backlog
 
     private
     def symlink
-
+      # symlink current entry to readme
+      FileUtils.ln_s(@date.path, File.join(Config.base_dir, "README.md"))
 
     end
-
-
 
   end
 end
