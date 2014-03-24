@@ -32,13 +32,3 @@ backlog init
 
 ```
 
-Temporary Development Notes
----------------------------
-
-* use aruba/cucumber for easy testing of cli tools
-* use haml for template
-* markdown parsing?
-
-
-
-

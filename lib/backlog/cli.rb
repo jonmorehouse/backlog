@@ -5,8 +5,8 @@ module Backlog
         init:  Init, 
         help: Help,
         open: Open,
+        
         #:archive => "Archive",
-
         # following features can come later
         #:todo => "Todo", 
         #:complete => "Complete", 
