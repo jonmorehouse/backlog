@@ -21,6 +21,7 @@ module Backlog
       else
         @@path = File.join(ENV['HOME'], ".backlog")
       end
+      @@path = File.expand_path @@path
     end
 
     def self.current_dir
