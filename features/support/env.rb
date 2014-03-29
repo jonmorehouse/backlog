@@ -1,5 +1,7 @@
 require 'fileutils'
 require 'aruba/cucumber'
+require 'aruba'
+require 'aruba/in_process'
 require 'backlog'
 
 lib_dir = File.expand_path('../../../lib', __FILE__)
@@ -18,9 +20,11 @@ end
 
 After do
   
-
 end
 
-Aruba.configure do |config|
+Aruba::InProcess.main_class = Backlog::CLI
+Aruba.process = Aruba::InProcess
 
+Aruba.configure do |config|
+  
 end

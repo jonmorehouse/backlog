@@ -17,16 +17,16 @@ module Backlog
       
     end
 
-    def self.new_from_args(args)
+    def self.new_from_argv(argv)
 
-      # return a datefile with the args changed up properly
-      first_keyword = args[0]
+      # return a datefile with the argv changed up properly
+      first_keyword = argv[0]
       date = DateFile.new(first_keyword)
-      args.shift
+      argv.shift
       
-      if date.valid == nil && args.length > 0
-        date = DateFile.new("#{first_keyword} #{args[0]}")
-        args.shift
+      if date.valid == nil && argv.length > 0
+        date = DateFile.new("#{first_keyword} #{argv[0]}")
+        argv.shift
       end
 
       if date.valid
@@ -42,8 +42,8 @@ module Backlog
       return "#{code.downcase}.md"
     end
 
-    def args
-      return @args
+    def argv
+      return @argv
     end
 
     def path
@@ -105,7 +105,5 @@ module Backlog
 
   end
 end
-
-
 
 

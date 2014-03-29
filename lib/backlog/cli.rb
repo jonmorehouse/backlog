@@ -28,29 +28,34 @@ module Backlog
 
     end
 
-    def initialize(*argv)
-      @args = Args.new(argv)
+    def initialize(argv, stdin=STDIN, stdout=STDOUT, stderr=STDERR, kernel=Kernel)
+
+      @argv, @stdin, @stdout, @stderr, @kernel = argv, stdin, stdout, stderr, kernel
     end
 
     def execute!
+
+      puts @argv.to_s
+
+      return
     
       # get the method to call for this command
-      command_class, args = subcommand
+      command_class, argv = subcommand
 
       # run the command
-      command_class.new(args, @date).execute!
+      command_class.new(argv, @date).execute!
 
     end
 
     # return a function pointer for the subcommand
     def subcommand()
 
-      if not @args.length > 0
+      if not @argv.length > 0
         @date = DateFile.new
         return Open, nil
       end
       # cache the first string a symbol
-      keyword = @args[0].to_sym
+      keyword = @argv[0].to_sym
       
       # loop through all commands and see if we have a match
       @@commands.each do |key, command_class|
@@ -73,17 +78,17 @@ module Backlog
         if keyword == key or aliases.include? keyword
           # return the correct command method
           @date = DateFile.new()
-          return command_class, @args[1,@args.length] 
+          return command_class, @argv[1,@argv.length] 
         end
       end
 
       # no command matches up - check to see if this is a date
       # we need to pass the date on to the next step ...
-      date = DateFile.new_from_args(@args)
+      date = DateFile.new_from_argv(@argv)
 
       if date != nil 
         @date = date
-        return Open, date.args
+        return Open, date.argv
       else
         @date = DateFile.new
         return Open, nil

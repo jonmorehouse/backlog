@@ -12,5 +12,3 @@ require 'backlog/open'
 # cli controller 
 require 'backlog/cli'
 
-Backlog::CLI.new(*ARGV)
-
