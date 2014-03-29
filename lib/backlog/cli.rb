@@ -46,6 +46,7 @@ module Backlog
     def subcommand()
 
       if not @args.length > 0
+        @date = DateFile.new
         return Open, nil
       end
       # cache the first string a symbol
@@ -84,6 +85,7 @@ module Backlog
         @date = date
         return Open, date.args
       else
+        @date = DateFile.new
         return Open, nil
       end
     end

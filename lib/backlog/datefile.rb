@@ -25,7 +25,7 @@ module Backlog
       args.shift
       
       if date.valid == nil && args.length > 0
-        date = Datefile("#{first_keyword} #{args[0]}")
+        date = DateFile.new("#{first_keyword} #{args[0]}")
         args.shift
       end
 
@@ -40,6 +40,10 @@ module Backlog
       
       code = @date.strftime("%a-%b-%d")
       return "#{code.downcase}.md"
+    end
+
+    def args
+      return @args
     end
 
     def path

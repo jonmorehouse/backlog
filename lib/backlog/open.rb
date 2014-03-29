@@ -1,20 +1,16 @@
 module Backlog
   class Open
 
-    def initialize(args, date = nil)
-
-      # grab the date path
-      if date == nil
-          @date = DateFile.new
-      else
-        @date = date
-      end
+    def initialize(args, date)
+  
+      @date = date
 
     end
 
     def execute!
 
       entry = Entry.new(@date)
+
       # make sure that the file is created 
       if not entry.exists
         entry.create
