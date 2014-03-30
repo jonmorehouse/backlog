@@ -57,8 +57,8 @@ module Backlog
       # if a past date - check to see if the date exists
       # check current/archive
       # generate the correct path as needed
-      current_path = File.join(Config.base_dir, "current/#{filename}")
-      archive_path = File.join(Config.base_dir, "archive/#{filename}")
+      current_path = File.join Config.current_dir, filename
+      archive_path = File.join Config.archive_dir, filename
 
       # logic to return the correct path
       if @date == Date.today
@@ -76,6 +76,13 @@ module Backlog
       else 
         return current_path
       end
+    end
+
+    def relative_path
+
+      # remove the base directory from the path
+      return path.sub "#{Config.base_dir}/", ""
+
     end
 
     def exists

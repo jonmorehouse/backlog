@@ -6,9 +6,7 @@ module Backlog
     end
 
     def execute!
-      
       Save.save
-
     end
 
     def self.save_in_background
@@ -20,21 +18,29 @@ module Backlog
 
     end
 
+    def self.save_date_in_background(date)
+
+      # takes in a date object and saves properly
+
+    end
+
     def self.save
-
-      Kernel::exec command
-
+      Kernel::exec command(commit_message)
     end
 
     private
-    def self.command
-      command = "cd #{Config.base_dir} && git add --all . && git commit -a -m \"#{commit_message}\""
+    def self.command(message)
+      command = "cd #{Config.base_dir} && git add --all . && git commit -a -m \"#{message}\""
     end
 
-    def self.commit_message
-      return Date.today.strftime("%A %B %d")
+    def self.commit_message(date = nil)
+
+      if date == nil
+        return Date.today.strftime("%A %B %d")
+      else
+        date.strftime("%A %B %d")
+      end
     end
 
   end
-
 end

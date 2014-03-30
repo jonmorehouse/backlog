@@ -20,8 +20,11 @@ module Backlog
         symlink
       end
 
-      # now open the command
-      Kernel::exec "#{ENV['EDITOR']} #{@date.path}"
+      # save date as needed
+      Save.save_date_in_background(@date.date)
+
+      # open file
+      Kernel::exec "cd #{Config.base_dir} && #{ENV['EDITOR']} #{@date.relative_path}"
     end
 
     def self.help
