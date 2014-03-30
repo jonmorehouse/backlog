@@ -7,28 +7,32 @@ module Backlog
 
     def execute!
 
+      menu = "Version: #{VERSION}" 
+      puts "#{menu}\n#{(0..menu.length).map{"-"}.join}"
+
       # run the command as needed
       CLI.commands.each do |command, command_class| 
-        #puts command_class
-        puts command
-        ##print_help(command_class)
+        
+        print_help command_class
 
       end
-
     end
 
     def self.help()
 
-      return <<-eos
-      Help: \tPrint this menu
-      eos
+  return <<-eos
+  Help: Print this menu
+  eos
 
     end
 
     def print_help(command_class)
 
-      help = command_class.help
-      puts help
+      if defined? command_class.help
+
+        help = command_class.help
+        puts help
+      end
 
     end
 

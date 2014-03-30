@@ -9,6 +9,13 @@ module Backlog
       Save.save
     end
 
+    def self.help
+
+  return <<-eos
+  Save: commit current backlog
+  eos
+
+    end
     def self.save_in_background
 
       job = fork do

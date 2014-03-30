@@ -29,9 +29,9 @@ module Backlog
 
     def self.help
 
-      return <<-eos
-      Open:\tedit backlog entries
-      eos
+  return <<-eos
+  Open:\tedit backlog entries
+  eos
 
     end
 

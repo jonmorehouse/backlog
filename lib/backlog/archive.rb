@@ -18,6 +18,13 @@ module Backlog
         end
     end
 
+    def self.help
+
+  return <<-eos
+  Archive: Move an entry to archive. No arguments cleans all old entries
+  eos
+
+    end
     private
     def archive_all
       Dir.glob("#{Config.current_dir}/**md").each do |path|

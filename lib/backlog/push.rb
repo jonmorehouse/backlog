@@ -13,6 +13,13 @@ module Backlog
       end
     end
 
+    def self.help
+
+  return <<-eos
+  Push:\tPush current backlog to git
+  eos
+
+    end
     private
     def remote_set
       command = "cd #{Config.base_dir} && git remote show origin 2>&1 1>/dev/null"

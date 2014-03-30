@@ -14,9 +14,9 @@ module Backlog
     end
 
     def self.help()
-      return <<-eos
-      Init:\tInitialize the backlog directory with the correct directory structures (ie: current/archive)
-      eos
+  return <<-eos
+  Init:\tInitialize the backlog directory with the correct directory structures (ie: current/archive)
+  eos
     end
 
     private
