@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'backlog'
 
 Gem::Specification.new do |s|
-  s.name        = "backlog"
+  s.name        = "personal-backlog"
   s.version     = Backlog::VERSION
   s.licenses    = ['MIT']
   s.platform    = Gem::Platform::RUBY
