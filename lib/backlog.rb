@@ -1,3 +1,5 @@
+require 'version'
+
 # utilities
 require 'backlog/args'
 require 'backlog/config'
@@ -14,4 +16,5 @@ require 'backlog/push'
 
 # cli controller 
 require 'backlog/cli'
+
 
