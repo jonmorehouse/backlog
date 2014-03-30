@@ -74,8 +74,9 @@ module Backlog
         # if alias / keywords match up then go ahead and return the correct class
         if keyword == key or aliases.include? keyword
           # return the correct command method
+          @argv = @argv[1,@argv.length]
           @datefile = DateFile.new_from_argv(@argv)
-          return command_class, @argv[1,@argv.length] 
+          return command_class, @argv 
         end
       end
 
@@ -87,7 +88,7 @@ module Backlog
         @datefile = date
         return Open, date.argv
       else
-        @datefile = DateFile.new
+        @datefile = DateFile.new_from_argv(@argv)
         return Open, nil
       end
     end

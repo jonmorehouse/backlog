@@ -25,6 +25,10 @@ module Backlog
 
     def self.new_from_argv(argv)
 
+      if argv.length == 0
+        return DateFile.new
+      end
+
       # return a datefile with the argv changed up properly
       first_keyword = argv[0]
       date = DateFile.new(first_keyword)
@@ -33,6 +37,7 @@ module Backlog
       if date.valid == nil && argv.length > 0
         date = DateFile.new("#{first_keyword} #{argv[0]}")
         argv.shift
+
       end
 
       if date.valid
