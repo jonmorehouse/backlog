@@ -1,1 +1,5 @@
-Backlog::VERSION = "v1.0.0"
+module Backlog
+
+  VERSION = "1.0.0"
+
+end
