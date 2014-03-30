@@ -38,10 +38,10 @@ module Backlog
     private
     def symlink
       
-      path = File.join(Config.base_dir, "README.md")
-
-      # symlink current entry to readme
-      FileUtils.ln_s(@date.path, path, :force => true)
+      Dir.chdir Config.base_dir do
+        # symlink current entry to readme
+        FileUtils.ln_s(@date.relative_path, "README.md", :force => true)
+      end
     end
 
   end
