@@ -31,7 +31,6 @@ Before do
 end
 
 Before ('@stubbed') do
-  puts "HELLO WORLD"
   @exec_spy = Spy.on(Kernel, :exec).and_return 0
 end
 
