@@ -7,7 +7,6 @@ module Backlog
         open: Open,
         archive: Archive,
         save: Save,
-
         # following features can come later
         #:todo => "Todo", 
         #:complete => "Complete", 
@@ -19,9 +18,9 @@ module Backlog
       :open => [:o, :edit],
       :help => :h,
       :archive => :a,
-      :todo => :t,
+      #:todo => :t,
       :save => :s,
-      :complete => :c,
+      #:complete => :c,
     }
 
     def self.commands

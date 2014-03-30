@@ -14,7 +14,7 @@ module Backlog
     def self.save_in_background
 
       job = fork do
-        exec command
+        Kernel::exec command
       end
       Process.detach job
 
@@ -22,7 +22,7 @@ module Backlog
 
     def self.save
 
-      exec command
+      Kernel::exec command
 
     end
 
