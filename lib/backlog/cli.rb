@@ -6,7 +6,7 @@ module Backlog
         help: Help,
         open: Open,
         archive: Archive,
-        #save: => Save 
+        save: Save,
 
         # following features can come later
         #:todo => "Todo", 

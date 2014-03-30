@@ -10,7 +10,6 @@ module Backlog
     end
 
     def execute!
-    
         # our cli parser will always try to guess a legitimate date
         if @date == nil or @date.date == Date.today
           archive_all  

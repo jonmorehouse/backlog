@@ -103,12 +103,9 @@ module Backlog
     end
 
     def now
-      
       @date = Date.parse(Time.now.to_s)
       @valid = true
-
     end
-
   end
 end
 
