@@ -7,27 +7,25 @@ Commands
 ```
 export BACKLOG_PATH=PATH_TO_BACKLOG || $HOME/.backlog
 
-# call next tuesday
+# edit entry for next tuesday
 backlog next tuesday 
 
-# add something to today's todo list
-backlog -t "Start element" 
-
-# check for a match of this task in the todo
-backlog -c "Today" 
-  
 # work on todays backlog - open with edtior
 backlog 
 
 # archive everything previous to today
 backlog a
 backlog archive
+backlog archive yesterday
 
-# go to the current directory
-backlog cd
-
-# backlog set up the directory
+# set up first backlog directory (new install)
 backlog init
+
+# save current backlog
+backlog save
+
+# push backlog to git
+backlog push
 
 
 ```
