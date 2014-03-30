@@ -35,10 +35,6 @@ module Backlog
 
     def execute!
 
-      puts @argv.to_s
-
-      return
-    
       # get the method to call for this command
       command_class, argv = subcommand
 
@@ -77,7 +73,7 @@ module Backlog
         # if alias / keywords match up then go ahead and return the correct class
         if keyword == key or aliases.include? keyword
           # return the correct command method
-          @date = DateFile.new()
+          @date = DateFile.new_from_argv(@argv)
           return command_class, @argv[1,@argv.length] 
         end
       end

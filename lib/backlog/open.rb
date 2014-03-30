@@ -21,8 +21,7 @@ module Backlog
       end
 
       # now open the command
-      #exec "#{ENV['EDITOR']} #{@date.path}"
-      puts @date.path
+      Kernel::exec "#{ENV['EDITOR']} #{@date.path}"
     end
 
     def self.help

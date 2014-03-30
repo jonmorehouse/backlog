@@ -3,6 +3,7 @@ require 'aruba/cucumber'
 require 'aruba'
 require 'aruba/in_process'
 require 'backlog'
+require 'spy'
 
 lib_dir = File.expand_path('../../../lib', __FILE__)
 
@@ -13,14 +14,20 @@ Before do
   set_env 'RUBYLIB', lib_dir
   # initialize backlog file
   set_env "BACKLOG_DIR", "backlog"
-  # we are using editor to open files
-  set_env "EDITOR", "echo"
+  set_env "HOME", File.join(Dir.pwd, "tmp")
 
 end
 
-After do
-  
+Before ('@stubbed') do
+  Spy.on(Kernel, :exec).and_return 0
 end
+
+After ('@stubbed') do
+
+  Spy.off(Kernel, :exec)
+
+end
+
 
 Aruba::InProcess.main_class = Backlog::CLI
 Aruba.process = Aruba::InProcess

@@ -18,7 +18,6 @@ module Backlog
 
     def create
      
-      puts "TEST"
       File.open(@path, "w").write content
       
     end
