@@ -20,6 +20,7 @@ module Backlog
       :help => :h,
       :archive => :a,
       :todo => :t,
+      :save => :s,
       :complete => :c,
     }
 
