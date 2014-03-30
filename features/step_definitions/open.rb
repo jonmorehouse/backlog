@@ -11,9 +11,3 @@ Then(/^"(.*?)" should be a backlog entry$/) do |date_string|
   File.exists?(path).should == true
 end
 
-
-
-
-
-
-

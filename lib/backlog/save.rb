@@ -6,6 +6,9 @@ module Backlog
     end
 
     def execute!
+      
+      Save.save
+
     end
 
     def self.save_in_background
@@ -24,11 +27,11 @@ module Backlog
     end
 
     private
-    def command
-      command = "git add --all . && git commit -a -m \"#{commit_message}\""
+    def self.command
+      command = "cd #{Config.base_dir} && git add --all . && git commit -a -m \"#{commit_message}\""
     end
 
-    def commit_message
+    def self.commit_message
       return Date.today.strftime("%A %B %d")
     end
 
