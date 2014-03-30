@@ -10,6 +10,7 @@ require 'backlog/init'
 require 'backlog/open'
 require 'backlog/archive'
 require 'backlog/save'
+require 'backlog/push'
 
 # cli controller 
 require 'backlog/cli'

@@ -7,6 +7,7 @@ module Backlog
         open: Open,
         archive: Archive,
         save: Save,
+        push: Push,
       }
 
     @@aliases = {
@@ -16,6 +17,7 @@ module Backlog
       :help => :h,
       :archive => :a,
       :save => :s,
+      :push => :p,
     }
 
     def self.commands
