@@ -18,7 +18,9 @@ module Backlog
 
     def create
      
-      File.open(@path, "w").write content
+      File.open(@path, "w") do |f|
+        f.write content
+      end
       
     end
 
