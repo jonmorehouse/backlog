@@ -1,8 +1,9 @@
+@announce
 Feature: archive
 
-  Scenario: Archive all
-    Given "current/mon-mar-16.md" exists
-
+  Scenario: archive 
+    Given default backlog directory exists
+    Given entry for "yesterday" exists
 
 
 
