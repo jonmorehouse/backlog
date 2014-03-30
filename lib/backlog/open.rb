@@ -21,7 +21,7 @@ module Backlog
       end
 
       # save date as needed
-      Save.save_date_in_background(@date.date)
+      Save.save_date_on_open(@date.date)
 
       # open file
       Kernel::exec "cd #{Config.base_dir} && #{ENV['EDITOR']} #{@date.relative_path}"
@@ -42,7 +42,6 @@ module Backlog
 
       # symlink current entry to readme
       FileUtils.ln_s(@date.path, path, :force => true)
-
     end
 
   end

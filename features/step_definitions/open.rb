@@ -11,7 +11,4 @@ Then(/^"(.*?)" should be a backlog entry$/) do |date_string|
   File.exists?(path).should == true
 end
 
-Then(/^"(.*?)" is saved$/) do |date_string|
-
-end
 

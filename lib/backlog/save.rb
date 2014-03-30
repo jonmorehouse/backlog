@@ -18,9 +18,10 @@ module Backlog
 
     end
 
-    def self.save_date_in_background(date)
+    def self.save_date_on_open(date)
 
       # takes in a date object and saves properly
+      Kernel::system command(commit_message(date))
 
     end
 
@@ -35,10 +36,12 @@ module Backlog
 
     def self.commit_message(date = nil)
 
+      today = Date.today.strftime("%A %B %d")
       if date == nil
-        return Date.today.strftime("%A %B %d")
+        return today 
       else
-        date.strftime("%A %B %d")
+        entry = date.strftime("%A %B %d")
+        return "#{entry} (updated on #{today})"
       end
     end
 

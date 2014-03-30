@@ -9,9 +9,12 @@ require 'chronic'
 lib_dir = File.expand_path('../../../lib', __FILE__)
 aruba_dir = nil
 
+def date_from_date_string(date_string)
+   return Chronic.parse(date_string)
+end
+
 def filename_from_date_string(date_string)
-  date = Chronic.parse(date_string)
-  return "#{date.strftime("%a-%b-%d").downcase}.md"
+  return "#{date_from_date_string(date_string).strftime("%a-%b-%d").downcase}.md"
 end
 
 def path_from_date_string(date_string)
@@ -32,10 +35,12 @@ end
 
 Before ('@stubbed') do
   @exec_spy = Spy.on(Kernel, :exec).and_return 0
+  @system_spy = Spy.on(Kernel, :system).and_return 0
 end
 
 After ('@stubbed') do
   Spy.off(Kernel, :exec)
+  Spy.off(Kernel, :system)
 end
 
 After do
