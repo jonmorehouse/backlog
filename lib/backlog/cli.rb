@@ -7,7 +7,7 @@ module Backlog
         open: Open,
         archive: Archive,
         save: Save,
-        push: Push,
+        push: Push
       }
 
     @@aliases = {
