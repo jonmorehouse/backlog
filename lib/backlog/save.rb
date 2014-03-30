@@ -37,7 +37,8 @@ module Backlog
     def self.commit_message(date = nil)
 
       today = Date.today.strftime("%A %B %d")
-      if date == nil
+
+      if date == nil or date == Date.today
         return today 
       else
         entry = date.strftime("%A %B %d")
