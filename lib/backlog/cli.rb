@@ -5,8 +5,9 @@ module Backlog
         init:  Init, 
         help: Help,
         open: Open,
-        
-        #:archive => "Archive",
+        archive: Archive,
+        #save: => Save 
+
         # following features can come later
         #:todo => "Todo", 
         #:complete => "Complete", 
@@ -39,7 +40,7 @@ module Backlog
       command_class, argv = subcommand
 
       # run the command
-      command_class.new(argv, @date).execute!
+      command_class.new(argv, @datefile).execute!
 
     end
 
@@ -47,7 +48,7 @@ module Backlog
     def subcommand()
 
       if not @argv.length > 0
-        @date = DateFile.new
+        @datefile = DateFile.new
         return Open, nil
       end
       # cache the first string a symbol
@@ -73,7 +74,7 @@ module Backlog
         # if alias / keywords match up then go ahead and return the correct class
         if keyword == key or aliases.include? keyword
           # return the correct command method
-          @date = DateFile.new_from_argv(@argv)
+          @datefile = DateFile.new_from_argv(@argv)
           return command_class, @argv[1,@argv.length] 
         end
       end
@@ -83,10 +84,10 @@ module Backlog
       date = DateFile.new_from_argv(@argv)
 
       if date != nil 
-        @date = date
+        @datefile = date
         return Open, date.argv
       else
-        @date = DateFile.new
+        @datefile = DateFile.new
         return Open, nil
       end
     end

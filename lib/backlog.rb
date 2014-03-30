@@ -8,6 +8,7 @@ require 'backlog/help'
 require 'backlog/entry'
 require 'backlog/init'
 require 'backlog/open'
+require 'backlog/archive'
 
 # cli controller 
 require 'backlog/cli'

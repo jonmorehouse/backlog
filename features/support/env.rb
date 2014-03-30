@@ -9,12 +9,14 @@ require 'chronic'
 lib_dir = File.expand_path('../../../lib', __FILE__)
 aruba_dir = nil
 
-def path_from_date_string(date_string)
+def filename_from_date_string(date_string)
   date = Chronic.parse(date_string)
-  filename = "#{date.strftime("%a-%b-%d").downcase}.md"
-  path = File.join(Backlog::Config.current_dir, filename)
+  return "#{date.strftime("%a-%b-%d").downcase}.md"
 end
 
+def path_from_date_string(date_string)
+  path = File.join(Backlog::Config.current_dir, filename_from_date_string(date_string))
+end
 
 # cucumber before / after hooks
 Before do

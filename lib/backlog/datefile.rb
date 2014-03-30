@@ -17,6 +17,12 @@ module Backlog
       
     end
 
+    def self.date_from_path(path)
+      
+      date_string = File.basename(path).sub!(".md", "").gsub!("-", " ")
+      return Date.parse(Chronic.parse(date_string).to_s)
+    end
+
     def self.new_from_argv(argv)
 
       # return a datefile with the argv changed up properly
