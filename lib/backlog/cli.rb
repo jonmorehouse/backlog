@@ -7,9 +7,6 @@ module Backlog
         open: Open,
         archive: Archive,
         save: Save,
-        # following features can come later
-        #:todo => "Todo", 
-        #:complete => "Complete", 
       }
 
     @@aliases = {
@@ -18,15 +15,11 @@ module Backlog
       :open => [:o, :edit],
       :help => :h,
       :archive => :a,
-      #:todo => :t,
       :save => :s,
-      #:complete => :c,
     }
 
     def self.commands
-
       return @@commands
-
     end
 
     def initialize(argv, stdin=STDIN, stdout=STDOUT, stderr=STDERR, kernel=Kernel)
