@@ -29,18 +29,22 @@ module Backlog
         return DateFile.new
       end
 
-      # return a datefile with the argv changed up properly
-      first_keyword = argv[0]
-      date = DateFile.new(first_keyword)
-      argv.shift
-      
-      if date.valid == nil && argv.length > 0
-        date = DateFile.new("#{first_keyword} #{argv[0]}")
-        argv.shift
+      # string
+      date_string = ""
+      date = nil
 
+      # loop through all the string combinations possible
+      argv.each do |piece|
+      
+        date_string = [date_string.split(" ") + [piece]].join " "
+        piece_date = DateFile.new date_string
+
+        if piece_date.valid
+          date = piece_date
+        end
       end
 
-      if date.valid
+      if date and date.valid
         return date
       else
         return nil

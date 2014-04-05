@@ -27,6 +27,7 @@ module Backlog
 
     def self.save_date_on_open(date)
 
+      commit_message(date)
       # takes in a date object and saves properly
       Kernel::system command(commit_message(date))
 
