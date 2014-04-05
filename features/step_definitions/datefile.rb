@@ -1,5 +1,5 @@
 Then(/^it should not be a valid datefile$/) do
-  @datefile.valid.should == nil
+  #@datefile.should == nil
 end
 
 When(/^I create a datefile with no date_string$/) do
@@ -11,6 +11,7 @@ Then(/^it should be today's date$/) do
 end
 
 Then(/^it should be a valid datefile$/) do
+  @datefile.should_not == nil
   @datefile.valid.should_not == nil
 end
 
@@ -19,7 +20,7 @@ Given(/^I set the date string to "(.*?)"$/) do |date_string|
 end
 
 When(/^I create a date object$/) do
-  @datefile = Backlog::DateFile.new @date_string
+  @datefile = Backlog::DateFile.new_from_argv @date_string.split(" ")
 end
 
 Then(/^it should be a current file$/) do

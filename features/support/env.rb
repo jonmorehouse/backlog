@@ -48,7 +48,9 @@ After do
 end
 
 at_exit do
-  FileUtils.rm_rf aruba_dir
+  if aruba_dir and File.directory?(aruba_dir)
+    FileUtils.rm_rf aruba_dir
+  end
 end
 
 # aruba specific

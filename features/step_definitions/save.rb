@@ -12,7 +12,7 @@ Then(/^"(.*?)" is saved$/) do |date_string|
   date = date_from_date_string(date_string)
 
   today = Date.today.strftime("%A %B %d")
-  if date == today
+  if date.strftime("%A %B %d") == today
     commit_message = today 
   else
     entry = date.strftime("%A %B %d")

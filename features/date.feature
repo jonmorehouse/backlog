@@ -12,7 +12,6 @@ Feature: date
       |"tomorday"|
 
   Scenario: today
-
     When I create a datefile with no date_string
     Then it should be a valid datefile
     And it should be today's date 
@@ -28,7 +27,7 @@ Feature: date
       |string|
       |"tomorrow"|
       |"next tuesday"|
-      |"next week"|
+      |"april 1st"|
 
 
 
