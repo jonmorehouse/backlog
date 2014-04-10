@@ -23,3 +23,7 @@ Feature: open
     And "next tuesday" should be a backlog entry
     And "next tuesday" is saved
 
+  Scenario: invalid date string passed
+    Given default backlog directory exists
+    When I run `backlog laster`
+
