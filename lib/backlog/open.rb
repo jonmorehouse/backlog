@@ -2,6 +2,11 @@ module Backlog
   class Open
 
     def initialize(args, date)
+
+      if not date
+        puts "Invalid date file"
+        return
+      end
   
       @date = date
 
