@@ -34,4 +34,4 @@ DEPENDENCIES
   chronic
   cucumber (~> 1.3.9)
   gemcutter
-  spy
+  spy (= 0.4.1)

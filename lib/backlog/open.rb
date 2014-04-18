@@ -7,12 +7,16 @@ module Backlog
         puts "Invalid date file"
         return
       end
-  
+
       @date = date
 
     end
 
     def execute!
+
+      if not @date
+        return
+      end
 
       entry = Entry.new(@date)
 
