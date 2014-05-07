@@ -32,19 +32,14 @@ module Backlog
 
     def content
       return <<-eos
-#{title} 
-#{(0..title.length).map{"="}.join}
+# #{title} 
 
-Completed
----------
+## Completed
 
 
 
 
-Todo
-----
-
-
+## Todo
 
 
       eos
