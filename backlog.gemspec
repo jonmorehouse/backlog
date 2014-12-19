@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
   s.files        = Dir.glob("{bin,lib}/**/*") + %w(README.md)
   s.executables  = ['backlog']
   s.require_path = 'lib'
+  s.add_dependency "chronic"
 end
