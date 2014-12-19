@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'backlog'
+
+# initialize CLI 
+Backlog::CLI.new(ARGV.dup).execute!
+
+
+
+

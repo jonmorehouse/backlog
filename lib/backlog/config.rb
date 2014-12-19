@@ -32,5 +32,13 @@ module Backlog
       return File.join(Config.base_dir, "archive")
     end
 
+    def self.entry_path
+      custom_entry_path = File.join(ENV['HOME'], ".personal_backlog.md")
+      if File.file?(custom_entry_path)
+        return custom_entry_path
+      end
+
+      return File.join(Config.base_dir, "template.md")
+    end
   end
 end

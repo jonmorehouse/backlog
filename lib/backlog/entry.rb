@@ -1,3 +1,5 @@
+require './config'
+
 module Backlog
   class Entry
     def initialize(date)
@@ -17,7 +19,6 @@ module Backlog
     end
 
     def create
-     
       File.open(@path, "w") do |f|
         f.write content
       end
@@ -26,23 +27,11 @@ module Backlog
 
     private
     def title
-
       return @date.date.strftime("%A %B %d")
     end
 
     def content
-      return <<-eos
-# #{title} 
 
-## Completed
-
-
-
-
-## Todo
-
-
-      eos
     end
 
 
